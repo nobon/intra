@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>HTS Intra</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<div class="alert alert-danger" role="alert" th:if="${param.timeout}">再度ログインしてください。</div>
+	<div class="alert alert-danger" role="alert" th:if="${param.error}">ログインに失敗しました(メールアドレスまたはパスワード不正)。</div>
+	<div class="alert alert-danger" role="alert" th:if="${param.logout}">ログアウトしました。</div>
+
+	<form method="post" action="/login">
+		<div class="formGroup">
+			<label class="controlLabel" for="loginId">ログインID</label>
+			<input type="text" class="formControl" name="loginId" />
+		</div>
+		<div class="formGroup">
+			<label class="controlLabel" for="loginId">パスワード</label>
+			<input type="password" class="formControl" name="password" />
+		</div>
+		<input type="submit" value="ログイン" />
+	</form>
+
+</body>
+</html>

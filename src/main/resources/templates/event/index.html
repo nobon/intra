@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<title>HTS Intra</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div th:replace="header"></div>
+	<table>
+		<tr>
+			<th>イベント名</th>
+			<th>イベント日付</th>
+		</tr>
+		<tr th:each="event : ${eventList}" th:object="${event}">
+			<td><a th:href="*{id}" th:text="*{name}">サンプルイベント</a></td>
+			<td>
+				<ul>
+					<li th:each="eventDate : *{eventDates}" th:text="${#dates.format(eventDate.date, 'yyyy/MM/dd')}">2018/08/15</li>
+				</ul>
+			</td>
+			<td><a th:href="'edit/' + *{id}">編集</a></td>
+		</tr>
+	</table>
+	<a th:href="new" >追加</a>
+
+</body>
+</html>

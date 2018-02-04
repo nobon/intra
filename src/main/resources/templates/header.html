@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+	<div>
+		<p>
+			こんにちは！<span sec:authentication="principal.username">福岡 ひとし</span>さん
+		</p>
+		<a th:href="@{'/logout'}">logout</a>
+	</div>
+</body>
+</html>
